@@ -2,7 +2,7 @@ version: '2'
 services:
   postgres:
     container_name: postgres
-    hostname: localhost
+    hostname: dbnet
     image: postgres:16.0-alpine
     restart: always
     environment:
@@ -23,7 +23,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./src:/var/www/html
+      - ./:/var/www/html
     networks:
       - icms
 

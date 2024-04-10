@@ -6,7 +6,7 @@ body {
   font-size: 16px;
   line-height: 1.8em;
   background-color: black;
-  color: white;
+  color: white
 }
 
 .wrapper{
@@ -52,8 +52,8 @@ header, main, footer {
 
 header {
   padding: 2em;
-  text-align: left;
-  background-image: url('./img/bg.jpg');
+  text-align: center;
+  background-image: url('imgg.jpg');
   background-size: cover;
   background-position: fixed;
   color: white;

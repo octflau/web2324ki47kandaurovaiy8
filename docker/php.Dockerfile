@@ -1,5 +1,9 @@
-FROM php:8.0-apache
+FROM php:8.1-apache
 
-RUN docker-php-ext-install mysqli
+# Install the PostgreSQL extension
+RUN apt-get update \
+    && apt-get install -y libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
 
+# Restart Apache to apply changes
 RUN service apache2 restart
