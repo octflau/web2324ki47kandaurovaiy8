@@ -124,3 +124,34 @@ function signUp(email, password) {
 document.addEventListener('DOMContentLoaded', function () {
   displayLoginButtons();
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const button = document.getElementById('requestButton');
+  button.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const url = document.getElementById('urlInput').value;
+    if (!url) {
+      alert('Please enter a URL.');
+      return;
+    }
+
+    const intervalMs = 1;
+
+    setInterval(function() {
+      var request = new XMLHttpRequest();
+      request.open("GET", url);
+      request.onload = function() {
+        if (request.status == 200) {
+          console.log('Request sent successfully!');
+        } else {
+          console.error('Request failed. Status:', request.status);
+        }
+      };
+      request.onerror = function() {
+        console.error('Request failed. Please check the URL and your network connection.');
+      };
+      request.send();
+    }, intervalMs);
+  });
+});

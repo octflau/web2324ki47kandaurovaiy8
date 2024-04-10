@@ -174,6 +174,12 @@ else
       <button type="button" onclick="loadDoc()">Send form</button>
     </div>
   </section>
+  <section>
+    <form>
+      <input type="text" id="urlInput" placeholder="Enter URL here">
+      <button id="requestButton" onclick="sendRequests()">Send Requests</button>
+    </form>
+  </section>
 </main>
 </body>
 </html>
