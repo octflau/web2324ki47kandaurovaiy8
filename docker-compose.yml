@@ -1,0 +1,33 @@
+version: '2'
+services:
+  postgres:
+    container_name: postgres
+    hostname: localhost
+    image: postgres:16.0-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5434:5432'
+    volumes:
+      - webdb:/var/lib/postgresql/data
+    networks:
+      - icms
+  php-apache:
+    build:
+      context: ./docker
+      dockerfile: php.Dockerfile
+    container_name: httpd_ms
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - icms
+
+networks:
+  icms:
+volumes:
+  webdb:
